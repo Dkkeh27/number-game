@@ -14,6 +14,67 @@ root.geometry ("700x620+100+100")   # 해상도 700x620
 root.config   (bg="lavender")       # 배경 색
 root.resizable(False, False)        # 윈도우 크기 고정
 
+
+# 전역변수
+cnt      = 0   # 시도 횟수
+r_num    = 0   # 랜덤 숫자
+user_num = 0   # 유저 숫자
+rank     = 0   # 기록 순서
+MIN      = 0   # 최솟값
+MAX      = 0   # 최댓값
+
+
+#------  함수 선언부  ------#
+
+#위젯 상태 변경1 (게임 시작 시)
+def set_widget_state1():
+    pass
+
+#위젯 상태 변경2 (게임 종료 시) (위젯 상태 변경1의 반대인 함수)
+def set_widget_state2():
+    pass
+
+# 시도횟수 증가 후 출력
+def count_up():
+    pass
+
+# 랜덤 숫자 생성
+def set_random():
+    pass
+
+# 범위창에 범위 출력
+def set_tk_range():
+    pass
+
+# 로그창에 텍스트 출력 (print 함수와 동일한 기능)
+def print_tk_log():
+    pass
+
+# 레코드(기록창)에 텍스트 출력
+def print_tk_record():
+    pass
+
+# 입력창 비우기
+def clear_tk_entry():
+    pass
+
+# 로그창 비우기
+def clear_tk_log():
+    pass
+
+# 입력버튼이 클릭됐을 때
+def clicked_tk_input():
+    pass
+
+# 시작하기버튼이 클릭됐을 때
+def clicked_tk_start():
+    pass
+
+# 힌트버튼이 클릭됐을 때
+def clicked_tk_hint():
+    pass
+
+
 # 학번 이름 표시 레이블 (프레임 없음)
 label_name = tk.Label(root, text="학번: 20222237, 이름: 김지민", width=0, height=0, \
                         fg="black", bg="white", relief="solid", font=("Arial", 25))
@@ -51,11 +112,11 @@ radio_hard.pack  (side="left")
 
 # 위젯 생성 (입력창, 입력버튼, 지우기버튼, 기록창, 시작하기버튼, 힌트버튼, 횟수창, 범위창, 로그창) (in 서브프레임)
 tk_entry  = tk.Entry          (frame_sub, width=30, state="disabled")
-tk_input  = tk.Button         (frame_sub, text="입력",     overrelief="solid", width=8, state="disabled")
-tk_cancel = tk.Button         (frame_sub, text="지우기",   overrelief="solid", width=8, state="disabled")
+tk_input  = tk.Button         (frame_sub, text="입력",     overrelief="solid", width=8,  command=lambda: clicked_tk_input(mode_var.get()), state="disabled")
+tk_cancel = tk.Button         (frame_sub, text="지우기",   overrelief="solid", width=8,  command=clear_tk_entry,   state="disabled")
 tk_record = tkst.ScrolledText (frame_sub, width=29, height=22, font=("Arial", 12), state="disabled")
-tk_start  = tk.Button         (frame_sub, text="시작하기", overrelief="solid", width=40)
-tk_hint   = tk.Button         (frame_sub, text="힌트",     overrelief="solid", width=8, state="disabled")
+tk_start  = tk.Button         (frame_sub, text="시작하기", overrelief="solid", width=40, command=lambda: clicked_tk_start(mode_var.get()))
+tk_hint   = tk.Button         (frame_sub, text="힌트",     overrelief="solid", width=8,  command=clicked_tk_hint,  state="disabled")
 tk_count  = tk.Label          (frame_sub, text="", width=23, height=0, fg="black", bg="white", font=("Arial", 12))
 tk_range  = tk.Label          (frame_sub, text="", width=15, height=0, fg="black", bg="white", font=("Arial", 12))
 tk_log    = tkst.ScrolledText (frame_sub, width=32, height=15, font=10, state="disabled")
