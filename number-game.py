@@ -98,7 +98,9 @@ def clear_tk_entry():
 
 # 로그창 비우기
 def clear_tk_log():
-    pass
+    tk_log.config (state="normal")   # 쓰기 모드로 변경
+    tk_log.delete ("1.0", "end")     # 비우기
+    tk_log.config (state="disabled") # 읽기 모드로 변경
 
 # 입력버튼이 클릭됐을 때
 def clicked_tk_input():
