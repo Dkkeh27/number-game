@@ -82,8 +82,15 @@ def print_tk_log(str, end="\n"):
     tk_log.see    (tk.END)                # 스크롤 내리기
 
 # 레코드(기록창)에 텍스트 출력
-def print_tk_record():
-    pass
+def print_tk_record(mode_num, cnt):
+    global rank
+    rank = rank + 1                       # 순번 증가
+    tk_record.config (state="normal")     # 쓰기 모드로 변경
+    if mode_num   == 1: tk_record.insert (tk.END, f"#{rank}  난이도: 쉬움     /  시도횟수: {cnt}\n")
+    elif mode_num == 2: tk_record.insert (tk.END, f"#{rank}  난이도: 보통     /  시도횟수: {cnt}\n")
+    elif mode_num == 3: tk_record.insert (tk.END, f"#{rank}  난이도: 어려움 /  시도횟수: {cnt}\n")
+    tk_record.config (state="disabled")   # 읽기 모드로 변경
+    tk_record.see    (tk.END)
 
 # 입력창 비우기
 def clear_tk_entry():
