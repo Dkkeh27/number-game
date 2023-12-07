@@ -49,8 +49,20 @@ radio_easy.pack  (side="left")  #왼쪽 정렬
 radio_normal.pack(side="left")
 radio_hard.pack  (side="left")
 
+# 위젯 생성 (입력창, 입력버튼, 지우기버튼, 기록창, 시작하기버튼, 힌트버튼, 횟수창, 범위창, 로그창) (in 서브프레임)
+tk_entry  = tk.Entry          (frame_sub, width=30, state="disabled")
+tk_input  = tk.Button         (frame_sub, text="입력",     overrelief="solid", width=8, state="disabled")
+tk_cancel = tk.Button         (frame_sub, text="지우기",   overrelief="solid", width=8, state="disabled")
+tk_start  = tk.Button         (frame_sub, text="시작하기", overrelief="solid", width=40)
+tk_hint   = tk.Button         (frame_sub, text="힌트",     overrelief="solid", width=8, state="disabled")
+
 # 행렬 배치
 frame_level.grid (row=1, column=1)                                  # 1행   1열
+tk_entry.grid    (row=2, column=1, ipady=4, padx=4, pady=5)         # 2행   1열
+tk_input.grid    (row=2, column=2, ipady=4, padx=4)                 # 2행   2열
+tk_cancel.grid   (row=2, column=3, ipady=4, padx=4)                 # 2행   3열
+tk_start.grid    (row=3, column=1, columnspan=2, ipady=4, pady=5)   # 3행   1~2열
+tk_hint.grid     (row=3, column=3, ipady=4)                         # 3행   3열
 
 
 root.mainloop()
