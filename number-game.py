@@ -131,8 +131,15 @@ def clicked_tk_input(mode_num):
 
 
 # 시작하기버튼이 클릭됐을 때
-def clicked_tk_start():
-    pass
+def clicked_tk_start(mode_num):
+    global cnt, r_num
+    cnt = 0                      # 시도횟수 초기화
+    clear_tk_log()               # 로그창 비우기
+    r_num = set_random(mode_num) # 랜덤 숫자 생성
+    print_tk_log("게임을 시작합니다")
+    print_tk_log("숫자를 맞춰주세요 > ", end="")
+    set_widget_state1()          # 위젯 상태 변경1
+    set_tk_range(mode_num)       # 범위창에 초기숫자 범위 출력
 
 # 힌트버튼이 클릭됐을 때
 def clicked_tk_hint():
