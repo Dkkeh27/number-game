@@ -94,7 +94,7 @@ def print_tk_record(mode_num, cnt):
 
 # 입력창 비우기
 def clear_tk_entry():
-    pass
+    tk_entry.delete(0,"end")         # 비우기
 
 # 로그창 비우기
 def clear_tk_log():
