@@ -51,7 +51,9 @@ def set_widget_state2():
 
 # 시도횟수 증가 후 출력
 def count_up():
-    pass
+    global cnt
+    cnt = cnt + 1
+    tk_count.config(text=f"시도 횟수: {cnt}")  # .config : 위젯 수정
 
 # 랜덤 숫자 생성
 def set_random():
