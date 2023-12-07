@@ -143,7 +143,15 @@ def clicked_tk_start(mode_num):
 
 # 힌트버튼이 클릭됐을 때
 def clicked_tk_hint():
-    pass
+    global MIN, MAX
+    MIN = (MIN+r_num) // 2          # 최솟값 = 최솟값 + 유저 숫자 / 2
+    MAX = (MAX+r_num) // 2          # 최댓값 = 최댓값 + 유저 숫자 / 2
+    if MIN % 2 == 1:        # 최솟값이 홀수면
+        MIN = MIN - 1       # 한번 뺌
+    if MAX % 2 == 1:        # 최댓값이 홀수면
+        MAX = MAX + 1       # 한번 더함
+    tk_range.config(text=f"{MIN} < X < {MAX}") # 바뀐 범위 출력
+    tk_hint.config(state="disabled")           # 힌트버튼 비활성화 (게임 당 1번만)
 
 
 # 학번 이름 표시 레이블 (프레임 없음)
