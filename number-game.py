@@ -40,7 +40,14 @@ def set_widget_state1():
 
 #위젯 상태 변경2 (게임 종료 시) (위젯 상태 변경1의 반대인 함수)
 def set_widget_state2():
-    pass
+    radio_easy.config   (state="normal")    # 난이도 쉬움    활성화
+    radio_normal.config (state="normal")    # 난이도 보통    활성화
+    radio_hard.config   (state="normal")    # 난이도 어려움  활성화
+    tk_start.config     (state="normal")    # 시작버튼       활성화
+    tk_entry.config     (state="disabled")  # 입력창         비활성화
+    tk_input.config     (state="disabled")  # 입력버튼       비활성화
+    tk_cancel.config    (state="disabled")  # 지우기버튼     비활성화
+    tk_hint.config      (state="disabled")  # 힌트버튼       비활성화
 
 # 시도횟수 증가 후 출력
 def count_up():
