@@ -66,8 +66,13 @@ def set_random(mode_num):
     return n
 
 # 범위창에 범위 출력
-def set_tk_range():
-    pass
+def set_tk_range(mode_num):
+    global MIN, MAX
+    MIN = 0
+    if mode_num == 1:    MAX = 50               # 난이도 쉬움이면 표시 최댓값 50
+    elif mode_num == 2:  MAX = 100              # 난이도 보통이면 표시 최댓값 100
+    elif mode_num == 3:  MAX = 1000             # 난이도 어려움이면 표시 최댓값 1000
+    tk_range.config(text=f"{MIN} < X < {MAX}")  # 예시)  0 < X < 50 (1 ~ 49 난수)
 
 # 로그창에 텍스트 출력 (print 함수와 동일한 기능)
 def print_tk_log():
