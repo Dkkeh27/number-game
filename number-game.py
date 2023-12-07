@@ -75,8 +75,11 @@ def set_tk_range(mode_num):
     tk_range.config(text=f"{MIN} < X < {MAX}")  # 예시)  0 < X < 50 (1 ~ 49 난수)
 
 # 로그창에 텍스트 출력 (print 함수와 동일한 기능)
-def print_tk_log():
-    pass
+def print_tk_log(str, end="\n"):
+    tk_log.config (state="normal")        # 잠시 활성화  (쓰기 모드로 변경 후 텍스트를 입력)
+    tk_log.insert (tk.END, f"{str}{end}") # 문자열 삽입
+    tk_log.config (state="disabled")      # 바로 비활성화(텍스트 입력 후 읽기 모드로 변경)
+    tk_log.see    (tk.END)                # 스크롤 내리기
 
 # 레코드(기록창)에 텍스트 출력
 def print_tk_record():
