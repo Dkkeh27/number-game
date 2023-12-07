@@ -28,7 +28,15 @@ MAX      = 0   # 최댓값
 
 #위젯 상태 변경1 (게임 시작 시)
 def set_widget_state1():
-    pass
+    radio_easy.config   (state="disabled")  # 난이도 쉬움    비활성화
+    radio_normal.config (state="disabled")  # 난이도 보통    비활성화
+    radio_hard.config   (state="disabled")  # 난이도 어려움  비활성화
+    tk_start.config     (state="disabled")  # 시작버튼       비활성화
+    tk_entry.config     (state="normal")    # 입력창         활성화
+    tk_input.config     (state="normal")    # 입력버튼       활성화
+    tk_cancel.config    (state="normal")    # 지우기버튼     활성화
+    tk_hint.config      (state="normal")    # 힌트버튼       활성화
+    tk_count.config     (text=f"시도 횟수: {cnt}")
 
 #위젯 상태 변경2 (게임 종료 시) (위젯 상태 변경1의 반대인 함수)
 def set_widget_state2():
