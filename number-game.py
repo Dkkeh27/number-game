@@ -109,7 +109,26 @@ def clicked_tk_input(mode_num):
     print_tk_log(user_num)           # 로그창에 텍스트 출력
     count_up()                       # 시도횟수 증가
     clear_tk_entry()                 # 입력창 비우기
-    
+
+    if user_num < r_num:    # 유저 숫자가 랜덤 숫자보다 작으면
+        print_tk_log(f"{user_num}보다 큽니다")   # 값이 커야 함을 알림
+        if user_num > MIN:         # 유저 숫자가 최솟값보다 크면
+            MIN = user_num         # 유저 숫자가 최솟값이 됨
+            tk_range.config(text=f"{MIN} < X < {MAX}")  #범위창에 변경된 범위 출력
+    elif user_num > r_num:  # 유저 숫자가 랜덤 숫자보다 크면
+        print_tk_log(f"{user_num}보다 작습니다") # 값이 작아야 함을 알림
+        if user_num < MAX:         # 유저 숫자가 최댓값보다 작으면
+            MAX = user_num         # 유저 숫자가 최댓값이 됨
+            tk_range.config(text=f"{MIN} < X < {MAX}")
+    elif user_num == r_num: # 유저 숫자와 랜덤 숫자가 같으면
+        print_tk_log("정답입니다")               # 정답임을 알림
+        set_widget_state2()                      # 위젯 상태 변경2
+        tk_range.config(text=f"X = {user_num}")
+        print_tk_record(mode_num, cnt)           # 기록창 갱신
+        return   # 함수 종료
+
+    print_tk_log("숫자를 맞춰주세요 > ", end="")
+
 
 # 시작하기버튼이 클릭됐을 때
 def clicked_tk_start():
