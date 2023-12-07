@@ -53,16 +53,24 @@ radio_hard.pack  (side="left")
 tk_entry  = tk.Entry          (frame_sub, width=30, state="disabled")
 tk_input  = tk.Button         (frame_sub, text="입력",     overrelief="solid", width=8, state="disabled")
 tk_cancel = tk.Button         (frame_sub, text="지우기",   overrelief="solid", width=8, state="disabled")
+tk_record = tkst.ScrolledText (frame_sub, width=29, height=22, font=("Arial", 12), state="disabled")
 tk_start  = tk.Button         (frame_sub, text="시작하기", overrelief="solid", width=40)
 tk_hint   = tk.Button         (frame_sub, text="힌트",     overrelief="solid", width=8, state="disabled")
+tk_count  = tk.Label          (frame_sub, text="", width=23, height=0, fg="black", bg="white", font=("Arial", 12))
+tk_range  = tk.Label          (frame_sub, text="", width=15, height=0, fg="black", bg="white", font=("Arial", 12))
+tk_log    = tkst.ScrolledText (frame_sub, width=32, height=15, font=10, state="disabled")
 
 # 행렬 배치
 frame_level.grid (row=1, column=1)                                  # 1행   1열
 tk_entry.grid    (row=2, column=1, ipady=4, padx=4, pady=5)         # 2행   1열
 tk_input.grid    (row=2, column=2, ipady=4, padx=4)                 # 2행   2열
 tk_cancel.grid   (row=2, column=3, ipady=4, padx=4)                 # 2행   3열
+tk_record.grid   (row=2, column=4, rowspan=4,    ipady=4, padx=6)   # 2~5행 4열
 tk_start.grid    (row=3, column=1, columnspan=2, ipady=4, pady=5)   # 3행   1~2열
 tk_hint.grid     (row=3, column=3, ipady=4)                         # 3행   3열
+tk_count.grid    (row=4, column=1, ipady=4, pady=5)                 # 4행   1열
+tk_range.grid    (row=4, column=2, columnspan=2, ipady=4, pady=5)   # 4행   2~3열
+tk_log.grid      (row=5, column=1, columnspan=3)                    # 5행   1열
 
 
 root.mainloop()
