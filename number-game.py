@@ -103,8 +103,13 @@ def clear_tk_log():
     tk_log.config (state="disabled") # 읽기 모드로 변경
 
 # 입력버튼이 클릭됐을 때
-def clicked_tk_input():
-    pass
+def clicked_tk_input(mode_num):
+    global r_num, user_num, MIN, MAX
+    user_num = int(tk_entry.get())   # user_num에 입력창에 입력된 값을 대입
+    print_tk_log(user_num)           # 로그창에 텍스트 출력
+    count_up()                       # 시도횟수 증가
+    clear_tk_entry()                 # 입력창 비우기
+    
 
 # 시작하기버튼이 클릭됐을 때
 def clicked_tk_start():
