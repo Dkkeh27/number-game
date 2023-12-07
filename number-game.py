@@ -56,8 +56,14 @@ def count_up():
     tk_count.config(text=f"시도 횟수: {cnt}")  # .config : 위젯 수정
 
 # 랜덤 숫자 생성
-def set_random():
-    pass
+def set_random(mode_num):
+    if mode_num == 1:
+        n = random.randint(1, 49)   # 난이도 쉬움이면   1 ~ 49 난수 생성
+    if mode_num == 2:
+        n = random.randint(1, 99)   # 난이도 보통이면   1 ~ 99 난수 생성
+    elif mode_num == 3:
+        n = random.randint(1, 999)  # 난이도 어려움이면 1 ~ 999 난수 생성
+    return n
 
 # 범위창에 범위 출력
 def set_tk_range():
